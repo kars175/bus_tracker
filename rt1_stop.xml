@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<body copyright="All data copyright AC Transit 2015.">
+<predictions agencyTitle="AC Transit" routeTitle="1" routeTag="1" stopTitle="Durant Av &amp; Shattuck Av" stopTag="0302020">
+  <direction title="To Bay Fair BART">
+  <prediction epochTime="1422171670762" seconds="104" minutes="1" isDeparture="false" affectedByLayover="true" dirTag="1_79_0" vehicle="2011" block="01011" tripTag="3971984" />
+  <prediction epochTime="1422172497718" seconds="931" minutes="15" isDeparture="false" affectedByLayover="true" dirTag="1_79_0" vehicle="2023" block="01007" tripTag="3971985" />
+  </direction>
+</predictions>
+</body>

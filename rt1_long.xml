@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<body copyright="All data copyright AC Transit 2015.">
+<vehicle id="2009" routeTag="1" dirTag="1_66_1" lat="37.7028465" lon="-122.1248397" secsSinceReport="145" predictable="true" heading="300" speedKmHr="8"/>
+<vehicle id="2003" routeTag="1" dirTag="1_73_1" lat="37.7462425" lon="-122.1717529" secsSinceReport="25" predictable="true" heading="315" speedKmHr="13"/>
+<vehicle id="2191" routeTag="1" dirTag="1_79_0" lat="37.7492675" lon="-122.1742324" secsSinceReport="25" predictable="true" heading="150" speedKmHr="10"/>
+<vehicle id="2106" routeTag="1" dirTag="1_79_0" lat="37.8121871" lon="-122.2689895" secsSinceReport="25" predictable="true" heading="180" speedKmHr="8"/>
+<vehicle id="2011" routeTag="1" dirTag="1_79_0" lat="37.8705139" lon="-122.2671966" secsSinceReport="145" predictable="true" heading="261" speedKmHr="0"/>
+<vehicle id="2004" routeTag="1" dirTag="1_73_1" lat="37.8475532" lon="-122.2607574" secsSinceReport="25" predictable="true" heading="360" speedKmHr="5"/>
+<vehicle id="2105" routeTag="1" dirTag="1_73_1" lat="37.7983016" lon="-122.2588653" secsSinceReport="25" predictable="true" heading="270" speedKmHr="10"/>
+<lastTime time="1422171541349"/>
+</body>
