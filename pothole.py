@@ -1,6 +1,11 @@
 #https://data.cityofchicago.org/Service-Requests/311-Service-Requests-Pot-Holes-Reported/7as2-ds3y
 
-
+#with open('example.csv', 'rb') as csvfile:
+#    dialect = csv.Sniffer().sniff(csvfile.read(1024))
+#    csvfile.seek(0)
+#    reader = csv.reader(csvfile, dialect)
+    
+    
 import csv
 import re
 import operator
