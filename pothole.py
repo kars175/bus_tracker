@@ -5,7 +5,6 @@
 #    csvfile.seek(0)
 #    reader = csv.reader(csvfile, dialect)
     
-    
 import csv
 import re
 import operator
@@ -19,11 +18,13 @@ def keywithmaxval(d):
 
 
 pot_hole = open("pot_hole.csv")
-pot_hole_open = open("pot_hole_open.csv",'w') #write the header for the csv file
+pot_hole_open = open("pot_hole_open.csv",'w')
+#write the header for the csv file
 line=pot_hole.readline()
 pot_hole_open.write(line)
 
-#step 1 remove all completed pot holes. We want to know only the open pot holes while (1):
+#step 1 remove all completed pot holes. We want to know only the open pot holes
+while (1):
     line=pot_hole.readline()
 
     if(line==''):
@@ -40,10 +41,11 @@ pot_hole.close()
 pot_hole_open = open("pot_hole_open.csv")
 i=0
 dict_pot_hole= csv.DictReader(pot_hole_open);
-#{'STATUS': 'Open - Dup', 'X COORDINATE': '1161660.25738822', 'COMPLETION DATE': '', 'ZIP': '60645', 'STREET ADDRESS': '7413 N DAMEN AVE', 'CREATION DATE': '02/08/2015', 'TYPE OF SERVICE REQUEST': 'Pothole in Street', 'SERVICE REQUEST NUMBER': '15-00237470', 'LONGITUDE': '-87.68032240344158', 'Police District': '24', 'Y COORDINATE': '1949311.76000709', 'MOST RECENT ACTION': '', 'LATITUDE': '42.017069883363384', 'NUMBER OF POTHOLES FILLED ON BLOCK': '', 'Community Area': '1', 'Ward': '49', 'SSA': '', 'CURRENT ACTIVITY': '', 'LOCATION': '(42.017069883363384, -87.68032240344158)'} pot_hole_zip ={}
+#{'STATUS': 'Open - Dup', 'X COORDINATE': '1161660.25738822', 'COMPLETION DATE': '', 'ZIP': '60645', 'STREET ADDRESS': '7413 N DAMEN AVE', 'CREATION DATE': '02/08/2015', 'TYPE OF SERVICE REQUEST': 'Pothole in Street', 'SERVICE REQUEST NUMBER': '15-00237470', 'LONGITUDE': '-87.68032240344158', 'Police District': '24', 'Y COORDINATE': '1949311.76000709', 'MOST RECENT ACTION': '', 'LATITUDE': '42.017069883363384', 'NUMBER OF POTHOLES FILLED ON BLOCK': '', 'Community Area': '1', 'Ward': '49', 'SSA': '', 'CURRENT ACTIVITY': '', 'LOCATION': '(42.017069883363384, -87.68032240344158)'}
+pot_hole_zip ={}
 
 for row in dict_pot_hole :   
-    print row['STREET ADDRESS'],row['NUMBER OF POTHOLES FILLED ON BLOCK'],row['ZIP']
+#    print row['STREET ADDRESS'],row['NUMBER OF POTHOLES FILLED ON BLOCK'],row['ZIP']
     if row['ZIP'] in pot_hole_zip :
             pot_hole_zip[row['ZIP']] += 1
     else:
@@ -52,12 +54,33 @@ for row in dict_pot_hole :
     if(i==500) :
         break
 
-for zip in pot_hole_zip :
-    print zip," has ",pot_hole_zip[zip]
+#for zip in pot_hole_zip :
+#    print zip," has ",pot_hole_zip[zip]
 
 max_pot_hole_zip = keywithmaxval(pot_hole_zip)
 
 print "zip with max pot holes is ",max_pot_hole_zip," has ", pot_hole_zip[max_pot_hole_zip]
-    
 
+row_block ={}
+for row in dict_pot_hole :
+   address = row['STREET ADDRESS']
+   part_address = address.split()
+
+   block_index = int(part_address[0]) /1000
+   del part_address[0]
+   address = " ".join(part_address)
+   if address in row_block:
+       if block_index in row_block[address]:
+           row_block[address][block_index] +=1
+       else:
+           row_block[address][block_index] =1
+   else:
+       dummy_dictionary={}
+       dummy_dictionary[block_index]=1
+       row_block[address] = dummy_dictionary
+
+for address in sorted(row_block):
+    for block_index in row_block[address]:
+         print "block_index:",block_index,":address:",address,":pothole_count:",row_block[address][block_index]
+   
 
